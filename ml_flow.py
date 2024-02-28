@@ -19,7 +19,7 @@ config = {
 }
 
 def run_neural_style_transfer(config):
-    # Set tracking URI
+    # Set tracking URI yeah
     mlflow.set_tracking_uri("/home/siddharth/Desktop/Neural-Style-Transfer/mlruns")
     # Set the experiment name
     mlflow.create_experiment("NeuralStyleTransferExperiment-6")
