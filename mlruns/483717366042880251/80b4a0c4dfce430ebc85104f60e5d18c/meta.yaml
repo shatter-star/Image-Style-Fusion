@@ -1,0 +1,15 @@
+artifact_uri: /home/siddharth/Desktop/Neural-Style-Transfer/mlruns/483717366042880251/80b4a0c4dfce430ebc85104f60e5d18c/artifacts
+end_time: 1709132833770
+entry_point_name: ''
+experiment_id: '483717366042880251'
+lifecycle_stage: active
+run_id: 80b4a0c4dfce430ebc85104f60e5d18c
+run_name: clumsy-shrimp-702
+run_uuid: 80b4a0c4dfce430ebc85104f60e5d18c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709132795608
+status: 4
+tags: []
+user_id: siddharth

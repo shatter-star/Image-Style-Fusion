@@ -1,0 +1,15 @@
+artifact_uri: /home/siddharth/Desktop/Neural-Style-Transfer/mlruns/551427412662153369/26d6415dddc24cfa80b492cafe32a7a0/artifacts
+end_time: 1709133563367
+entry_point_name: ''
+experiment_id: '551427412662153369'
+lifecycle_stage: active
+run_id: 26d6415dddc24cfa80b492cafe32a7a0
+run_name: likeable-sow-693
+run_uuid: 26d6415dddc24cfa80b492cafe32a7a0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709133517429
+status: 4
+tags: []
+user_id: siddharth

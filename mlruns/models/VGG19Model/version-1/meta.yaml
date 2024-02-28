@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1709134498781
+current_stage: None
+description: null
+last_updated_timestamp: 1709134498781
+name: VGG19Model
+run_id: 4f912ac608b54cae8a115408bafe9df7
+run_link: null
+source: /home/siddharth/Desktop/Neural-Style-Transfer/mlruns/461741626495817299/4f912ac608b54cae8a115408bafe9df7/artifacts/model
+status: READY
+status_message: null
+storage_location: /home/siddharth/Desktop/Neural-Style-Transfer/mlruns/461741626495817299/4f912ac608b54cae8a115408bafe9df7/artifacts/model
+user_id: null
+version: 1

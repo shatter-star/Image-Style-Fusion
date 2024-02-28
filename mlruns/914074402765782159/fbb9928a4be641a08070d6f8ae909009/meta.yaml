@@ -1,0 +1,15 @@
+artifact_uri: /home/siddharth/Desktop/Neural-Style-Transfer/mlruns/914074402765782159/fbb9928a4be641a08070d6f8ae909009/artifacts
+end_time: 1709133889811
+entry_point_name: ''
+experiment_id: '914074402765782159'
+lifecycle_stage: active
+run_id: fbb9928a4be641a08070d6f8ae909009
+run_name: angry-gnu-684
+run_uuid: fbb9928a4be641a08070d6f8ae909009
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709133843551
+status: 4
+tags: []
+user_id: siddharth
