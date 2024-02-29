@@ -143,9 +143,10 @@ def neural_style_transfer(config):
     '''
     content_img_path = os.path.join(config['content_images_dir'], config['content_img_name'])
     style_img_path = os.path.join(config['style_images_dir'], config['style_img_name'])
-    out_dir_name = 'combined_' + os.path.split(content_img_path)[1].split('.')[0] + '_' + os.path.split(style_img_path)[1].split('.')[0]
+    out_dir_name = config['style_img_name'].split('.')[0]  # Get the name of the style image without the extension
     dump_path = os.path.join(config['output_img_dir'], out_dir_name)
     os.makedirs(dump_path, exist_ok=True)
+    loss_history = []  # Initialize loss_history
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     content_img = prepare_img(content_img_path, config['height'], device)
     style_img = prepare_img(style_img_path, config['height'], device)
@@ -164,6 +165,7 @@ def neural_style_transfer(config):
     
     optimizer = LBFGS((optimizing_img,), max_iter=num_of_iterations, line_search_fn='strong_wolfe')
     cnt = 0
+    
 
     def closure():
         nonlocal cnt
@@ -175,10 +177,15 @@ def neural_style_transfer(config):
         with torch.no_grad():
             print(f'L-BFGS | iteration: {cnt:03}, total loss={total_loss.item():12.4f}, content_loss={config["content_weight"] * content_loss.item():12.4f}, style loss={config["style_weight"] * style_loss.item():12.4f}, tv loss={config["tv_weight"] * tv_loss.item():12.4f}')
             save_and_maybe_display(optimizing_img, dump_path, config, cnt, num_of_iterations)
+            # Append the loss values to loss_history
+            loss_history.append((total_loss.item(), content_loss.item(), style_loss.item(), tv_loss.item()))
         cnt += 1
         return total_loss
+    
     optimizer.step(closure)
-    return dump_path
+    return dump_path, loss_history
+
+
 
 PATH = ''
 CONTENT_IMAGE = 'a1.jpg'
@@ -203,3 +210,5 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")  # Define 
 neural_net, _, _ = prepare_model(device)  # Define the "neural_net" variable
 
 torch.save(neural_net, 'model.pth')
+
+
