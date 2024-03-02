@@ -57,25 +57,15 @@ def run_neural_style_transfer(config):
 
         # Extract loss values from loss_history
         total_loss_values = [loss[0] for loss in loss_history]
-        style_loss_values = [loss[1] for loss in loss_history]
-        content_loss_values = [loss[2] for loss in loss_history]
+        style_loss_values = [loss[2] for loss in loss_history]  # Style loss is at index 2
+        content_loss_values = [loss[1] for loss in loss_history]  # Content loss is at index 1
         tv_loss_values = [loss[3] for loss in loss_history]
 
-        # Find the maximum value of style_loss and content_loss
-        max_style_loss = max(style_loss_values)
-        max_content_loss = max(content_loss_values)
-
-        # Normalize style_loss and content_loss values
-        normalized_style_loss = [loss / max_style_loss for loss in style_loss_values]
-        normalized_content_loss = [loss / max_content_loss for loss in content_loss_values]
-
-        content_loss_scaled = [loss * 1000 for loss in normalized_content_loss]  
-        style_loss_scaled = [loss * 1000 for loss in normalized_style_loss]  
-
+        # Plotting the loss curve
         plt.figure(figsize=(10, 6))  # Adjust figure size if needed
         plt.plot(total_loss_values, label='Total Loss')
-        plt.plot(style_loss_scaled, label='Style Loss')
-        plt.plot(content_loss_scaled, label='Content Loss')
+        plt.plot(style_loss_values, label='Style Loss')
+        plt.plot(content_loss_values, label='Content Loss')
         plt.plot(tv_loss_values, label='TV Loss')
 
         # Add labels and title to the plot
@@ -85,8 +75,10 @@ def run_neural_style_transfer(config):
         plt.legend()
 
         # Save and log the plot
+        plt.yscale('log')
         plt.savefig('loss_curve.png')
         mlflow.log_artifact('loss_curve.png')
+
 
 
 def parse_arguments():
