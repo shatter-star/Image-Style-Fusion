@@ -110,11 +110,5 @@ if __name__ == "__main__":
     config = vars(args)
     os.makedirs(config['output_img_dir'], exist_ok=True)
     
-    # Check if the experiment exists, if not, create it
-    experiment_name = "Neural-Style-Transfer"
-    experiment = mlflow.get_experiment_by_name(experiment_name)
-    if experiment is None:
-        mlflow.create_experiment(experiment_name)
-    
     # Run neural style transfer
     run_neural_style_transfer(config)
